@@ -13,7 +13,7 @@ import {
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCdgAITXTldockRB_wgxOrbNUPKzSVBhDs",
+apiKey: "AIzaSyCdgAITXTldockRB_wgxOrbNUPKzSVBhDs",
   authDomain: "insan-cemerlang-c9554.firebaseapp.com",
   projectId: "insan-cemerlang-c9554",
   storageBucket: "insan-cemerlang-c9554.appspot.com",
@@ -21,7 +21,6 @@ const firebaseConfig = {
   appId: "1:753628555075:web:7a72b2d1e8ae89716931f6",
   measurementId: "G-KMJZ5V0B8H"
 };
-
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
