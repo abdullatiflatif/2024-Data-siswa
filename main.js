@@ -24,3 +24,16 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+export async function ambilDaftarSiswa () {
+  const siswaref = collection(db, "siswa");
+  const q = query(siswaRef, orderBy("nama"));
+  const querySnapshot = await getDocs(q);
+  
+  let retval = [];
+  querySnapshot.forEach(() => {
+    rerval.push({ id: doc.id, nama: doc.data().nama });
+  }
+    )
+    return retval;
+}
