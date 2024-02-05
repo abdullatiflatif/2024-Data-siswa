@@ -5,7 +5,7 @@ import {
   collection,
   addDoc,
   getDocs,
-  deletDoc,
+  deleteDoc,
   doC,
   query,
   orderBy
@@ -22,17 +22,29 @@ apiKey: "AIzaSyCdgAITXTldockRB_wgxOrbNUPKzSVBhDs",
   measurementId: "G-KMJZ5V0B8H"
 };
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
+const db = getAnalytics(app);
 export async function ambilDaftarSiswa () {
   const siswaref = collection(db, "siswa");
   const q = query(siswaRef, orderBy("nama"));
   const querySnapshot = await getDocs(q);
   
   let retval = [];
-  querySnapshot.forEach(() => {
+  querySnapshot.forEach((doc) => {
     rerval.push({ id: doc.id, nama: doc.data().nama });
   }
     )
     return retval;
+}
+
+export async function tambahSiswa(val){
+  try {
+  const docRef = await addDoc(collection(db, "siswa"), {
+    nama: val
+  });
+  console.log('Berhasil menyimpen dokumen dengan id: ' + docRef.id);
+  } catch (e) {
+    console.log('Error menambah dokumen: ' + e);
+    
+  }
+  
 }
