@@ -28,7 +28,7 @@
    let elemenNamaSiswa = $('#daftar-siswa');
    let daftarSiswa = await ambilDaftarSiswa();
    
-   daftarSiswa.forEach(data) => {
+   daftarSiswa.forEach((data) => {
      elemenNamaSisa.append(
        '<li>' +
        data.siswa +
