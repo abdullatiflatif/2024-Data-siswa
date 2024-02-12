@@ -35,7 +35,7 @@ const siswa = await ambilSiswa(docid)
 
 
 elemenNamaSiswa.value = siswa.nama;
-tombolUbah.addEventListener('click' ,async function (el){
+tombolUbah.addEventListener('click', async function (el){
   el.preventDefault();
   await ubahSiswa(docld, elemenNamaSiswa.value)
   window.location.href = 'siswa.html';
