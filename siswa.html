@@ -24,17 +24,20 @@
  <script type="module">
  import { ambilDaftarSiswa, hapusSiswa } from "./main.js";
  
- $(document).ready(async function() 
+ $(document).ready(async function() {
    let elemenNamaSiswa = $('#daftar-siswa');
    let daftarSiswa = await ambilDaftarSiswa();
    
    daftarSiswa.forEach((data) => {
-     elemenNamaSisa.append(
+     elemenNamaSiswa.append(
        '<li class="list-group- item d-flex justify-conten-between">' +
        '<label>' +
-       data.siswa +
+       data.nama +
        '</label>' +
        '<div>' +
+       '<a href="#" class="me-2 link-ubah" data="' +
+       data.id +
+       '">Ubah</a>' +
        ' <button class="btn btn-danger tombol-hapus" data="'+
        data.id+
        '">hapus</button>' +
@@ -45,6 +48,11 @@
    $('.tombol-hapus').clinck(async function() {
      await hapusSiswa($(this).attr('data'));
      location.reload();
+   })
+   
+   $('.link-ubah').click(async function(){
+     window.location.replace('ubah-siswa.html?docld=' + $(this).attr('data'));
+     
    })
  });
  
