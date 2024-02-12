@@ -32,7 +32,7 @@ export async function ambilDaftarSiswa () {
   querySnapshot.forEach((doc) => {
     rerval.push({ id: doc.id, nama: doc.data().nama });
   }
-    )
+    );
     return retval;
 }
 
