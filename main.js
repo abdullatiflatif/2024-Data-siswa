@@ -22,7 +22,7 @@ apiKey: "AIzaSyCdgAITXTldockRB_wgxOrbNUPKzSVBhDs",
   measurementId: "G-KMJZ5V0B8H"
 };
 const app = initializeApp(firebaseConfig);
-const db = getAnalytics(app);
+const db = getFirestore(app);
 export async function ambilDaftarSiswa () {
   const siswaref = collection(db, "siswa");
   const q = query(siswaRef, orderBy("nama"));
@@ -48,5 +48,5 @@ export async function tambahSiswa(val){
   }
 }
 export async function hapusSiswa(docld) {
-  await deleteDoc(doc(db, "siswa"), docld);
+  await deleteDoc(doc(db, "siswa", docld));
 }
